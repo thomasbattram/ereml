@@ -120,6 +120,13 @@ ldak_res[ldak_res$model == "blanket", "fdr"] <- p.adjust(ldak_res[ldak_res$model
 ldak_res[ldak_res$model == "grouping", "fdr"] <- p.adjust(ldak_res[ldak_res$model == "grouping", "p", drop = T], method = "fdr")
 
 ldak_res %>%
+	group_by(model) %>%
+	summarise(med_m2 = median(m2), mean_m2 = mean(m2))
+
+ldak_res %>%
+	dplyr::filter(fdr < 0.15)
+
+ldak_res %>%
 	dplyr::filter(fdr < 0.05)
 
 # summary(ldak_res)

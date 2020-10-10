@@ -15,9 +15,7 @@ setwd(path)
 
 pkgs <- c("alspac", "tidyverse", "haven", "readxl", "varhandle")
 lapply(pkgs, require, character.only = T)
-setDataDir("/Volumes/ALSPAC-Data")
-
-devtools::load_all("~/Desktop/projects/Main_project/repos/usefunc")
+setDataDir("") # directory for alspac data
 
 data(current)
 data(useful)
